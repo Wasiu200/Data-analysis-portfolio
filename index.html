@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Herbay Toheeb | Data Analyst & BI Specialist</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0f172a;
+      --accent:#2563eb;
+      --light:#f8fafc;
+      --gray:#94a3b8;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--light);
+      color:var(--primary);
+    }
+
+    section{
+      padding:100px 8%;
+    }
+
+    h2{
+      font-size:2.2rem;
+      margin-bottom:40px;
+      font-weight:800;
+      position:relative;
+    }
+
+    h2::after{
+      content:"";
+      width:60px;
+      height:4px;
+      background:var(--accent);
+      position:absolute;
+      left:0;
+      bottom:-10px;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:white;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      font-weight:800;
+      font-size:1.3rem;
+      color:var(--accent);
+    }
+
+    nav a{
+      margin-left:25px;
+      text-decoration:none;
+      color:var(--primary);
+      font-weight:600;
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:var(--accent);
+    }
+
+    /* HERO */
+    .hero{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      background:linear-gradient(to right,#0f172a,#1e293b);
+      color:white;
+      padding-top:80px;
+    }
+
+    .hero h1{
+      font-size:3rem;
+      font-weight:800;
+    }
+
+    .hero span{
+      color:var(--accent);
+    }
+
+    .hero p{
+      margin-top:15px;
+      max-width:600px;
+      color:#cbd5e1;
+    }
+
+    .btn{
+      margin-top:25px;
+      padding:12px 28px;
+      background:var(--accent);
+      color:white;
+      border-radius:30px;
+      text-decoration:none;
+      font-weight:600;
+      display:inline-block;
+      transition:.3s;
+    }
+
+    .btn:hover{
+      background:#1d4ed8;
+      transform:translateY(-3px);
+    }
+
+    /* ABOUT STATS */
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:30px;
+      margin-top:40px;
+    }
+
+    .stat-box{
+      background:white;
+      padding:30px;
+      border-radius:16px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      transition:.3s;
+    }
+
+    .stat-box:hover{
+      transform:translateY(-6px);
+    }
+
+    .stat-box h3{
+      font-size:2rem;
+      color:var(--accent);
+    }
+
+    /* SERVICES */
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .service-card{
+      background:white;
+      padding:40px 30px;
+      border-radius:20px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      transition:.4s;
+    }
+
+    .service-card i{
+      font-size:2rem;
+      color:var(--accent);
+      margin-bottom:15px;
+    }
+
+    .service-card:hover{
+      background:var(--accent);
+      color:white;
+      transform:translateY(-8px);
+    }
+
+    .service-card:hover i{
+      color:white;
+    }
+
+    /* PROJECTS */
+    .project-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:white;
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      transition:.4s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .project-card h3{
+      margin-bottom:10px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .testimonial-card{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      font-style:italic;
+    }
+
+    /* CONTACT */
+    .contact{
+      background:#0f172a;
+      color:white;
+      text-align:center;
+    }
+
+    .contact a{
+      color:white;
+      margin:0 15px;
+      font-size:1.5rem;
+      transition:.3s;
+    }
+
+    .contact a:hover{
+      color:var(--accent);
+    }
+
+    
+
+    footer{
+      background:#020617;
+      color:#94a3b8;
+      text-align:center;
+      padding:20px;
+      font-size:.9rem;
+    }
+
+    @media(max-width:768px){
+      .hero h1{font-size:2.2rem;}
+      nav{display:none;} /* simple clean mobile */
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Herbay</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Case Studies</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Turning Data Into <span>Business Growth</span></h1>
+  <p>I help companies unlock insights through Business Intelligence, advanced analytics, and data-driven strategies that improve revenue and operational efficiency.</p>
+  <a href="#projects" class="btn">View My Work</a>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am a Data Analyst & BI Specialist delivering high-impact dashboards, analytics solutions, and forecasting models. My focus is not just analysis — but measurable business transformation.</p>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h3>20+</h3>
+      <p>Projects Delivered</p>
+    </div>
+    <div class="stat-box">
+      <h3>15%</h3>
+      <p>Avg Revenue Growth Impact</p>
+    </div>
+    <div class="stat-box">
+      <h3>10+</h3>
+      <p>Dashboards Built</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <h2>Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <i class="fas fa-chart-line"></i>
+      <h3>Business Intelligence</h3>
+      <p>Executive dashboards, KPI tracking & performance monitoring.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-database"></i>
+      <h3>Data Analysis</h3>
+      <p>Advanced analysis using Python, SQL & Excel.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-brain"></i>
+      <h3>Predictive Analytics</h3>
+      <p>Forecasting models & trend analysis for strategic planning.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Case Studies</h2>
+  <div class="project-grid">
+
+    <div class="project-card">
+      <h3>Sales Optimization</h3>
+      <p>Built BI dashboard identifying underperforming regions — increased revenue by 12%.</p>
+    </div>
+
+    <div class="project-card">
+      <h3>Customer Retention Model</h3>
+      <p>Analyzed churn drivers — reduced customer loss by 15%.</p>
+    </div>
+
+    <div class="project-card">
+      <h3>Revenue Forecasting</h3>
+      <p>Developed time-series model improving financial planning accuracy by 20%.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CLIENT PROJECT SHOWCASE -->
+<section id="client-project">
+  <h2>Featured Client Project</h2>
+
+  <div class="project-grid">
+
+    <div class="project-card">
+      <img src="images/client-project-screenshot.jpg" alt="Client Project Screenshot" style="width:100%; border-radius:12px; margin-bottom:15px;">
+
+      <h3>Client Project Title</h3>
+
+      <p><strong>Project Overview:</strong><br>
+      Briefly describe the business problem you solved for the client. Example:
+      "Developed a comprehensive data analysis solution to identify revenue leakage and optimize performance metrics."</p>
+
+      <p><strong>Tools Used:</strong> Python, SQL, Power BI</p>
+
+      <p><strong>Impact:</strong><br>
+      Clearly state measurable results such as increased revenue, reduced cost, improved reporting efficiency, etc.</p>
+
+      <div style="margin-top:20px;">
+        <a href="https://github.com/yourusername/client-project" target="_blank" class="btn">View GitHub Repository</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Let’s Build Something Impactful</h2>
+  <p>Ready to transform your data into growth? Let’s collaborate.</p>
+  <div>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</section>
+
+
+
+
+
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({ duration: 1000, once: true });
+
+  // Animated Counter
+  const counters = document.querySelectorAll('.stat-box h3');
+  const speed = 200;
+
+  counters.forEach(counter => {
+    const animate = () => {
+      const value = +counter.getAttribute('data-target');
+      const data = +counter.innerText.replace(/[^0-9]/g, '');
+      const time = value / speed;
+
+      if(data < value) {
+        counter.innerText = Math.ceil(data + time) + '+';
+        setTimeout(animate, 20);
+      } else {
+        counter.innerText = value + '+';
+      }
+    }
+    animate();
+  });
+</script>
+
+
+
+<!-- PROJECT IMAGE MODAL -->
+<div id="imageModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:2000;">
+  <img id="modalImg" style="max-width:90%; max-height:90%; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+</div>
+
+<!-- CONTACT FORM -->
+<section style="padding:80px 8%; background:#f1f5f9;">
+  <h2>Send a Direct Message</h2>
+  <form style="max-width:600px; margin:auto; display:flex; flex-direction:column; gap:20px;">
+    <input type="text" placeholder="Your Name" required style="padding:14px; border-radius:10px; border:1px solid #cbd5e1;">
+    <input type="email" placeholder="Your Email" required style="padding:14px; border-radius:10px; border:1px solid #cbd5e1;">
+    <textarea placeholder="Project Details" rows="5" required style="padding:14px; border-radius:10px; border:1px solid #cbd5e1;"></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+<script>
+
+// Navbar background on scroll
+window.addEventListener("scroll", function(){
+  const navbar = document.querySelector(".navbar");
+  navbar.style.background = window.scrollY > 50 ? "#ffffff" : "transparent";
+  navbar.style.boxShadow = window.scrollY > 50 ? "0 2px 10px rgba(0,0,0,0.08)" : "none";
+});
+
+// Image modal popup
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+document.querySelectorAll(".project-card img").forEach(img => {
+  img.style.cursor = "pointer";
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+modal.addEventListener("click", () => modal.style.display = "none");
+
+// Hover glow effect
+const cards = document.querySelectorAll('.project-card, .service-card');
+cards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.boxShadow = '0 20px 60px rgba(37,99,235,0.25)';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+  });
+});
+
+
+</script>
+<footer>
+  © 2026 Herbay Toheeb | Data Analyst & BI Specialist
+</footer>
+</body>
+</html>
